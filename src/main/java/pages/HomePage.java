@@ -8,15 +8,15 @@ import base.BasePage;
 public class HomePage extends BasePage {
 
     // locators
-    By myAccountHeadingLocator = By.xpath("//*[@id='account-account']//h2[1]");
+    By adminMenuLocator = By.xpath("//a[contains(., 'Admin')]");
 
     public HomePage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
 
-    public String getMyAccountTitle() {
-        return getText(myAccountHeadingLocator);
+    public void clickOnAdminMenu() {
+        clickElement(adminMenuLocator);
     }
 
 }

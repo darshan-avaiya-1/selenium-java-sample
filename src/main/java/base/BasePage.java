@@ -1,6 +1,7 @@
 package base;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,6 +29,10 @@ public class BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    protected List<WebElement> waitUntilAllElementsVisible(By locator) {
+        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+    }
+
     protected WebElement waitUntilElementClickable(By locator) {
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
@@ -38,6 +43,10 @@ public class BasePage {
 
     protected WebElement getElement(By locator) {
         return waitUntilElementVisible(locator);
+    }
+
+    protected List<WebElement> getAllElements(By locator) {
+        return waitUntilAllElementsVisible(locator);
     }
 
     protected void enterText(By locator, String text) {
